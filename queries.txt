@@ -1,0 +1,42 @@
+Task 1. 
+
+SELECT 
+	o.id, 
+    o.date, 
+    YEAR(o.date) as year, 
+    MONTH(o.date) as month, 
+    DAY(o.date) as day 
+FROM orders o
+
+
+Task 2.
+
+SELECT 
+	o.id, 
+    o.date, 
+    o.date + INTERVAL 1 DAY as next_day
+FROM orders o
+
+
+Task 3. 
+
+SELECT 
+	o.id, 
+    o.date, 
+    UNIX_TIMESTAMP(o.date) as timestamp
+FROM orders o
+
+
+Task 4. 
+
+SELECT 
+	COUNT(*) as dates_between
+FROM orders
+WHERE orders.date BETWEEN '1996-07-10 00:00:00' AND '1996-10-08 00:00:00'
+
+
+Task 5. 
+
+SELECT 
+	JSON_OBJECT('id', o.id, 'date', o.date) as order_json
+FROM orders o
